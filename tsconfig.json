@@ -14,8 +14,11 @@
       "@/*": [
         "./src/*"
       ],
-      "@shared/*": [
+      "@/shared/*": [
         "./src/shared/*"
+      ],
+      "@/pages/*": [
+        "./src/pages/*"
       ]
     }
   }

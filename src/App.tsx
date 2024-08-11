@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
-import Layout from './shared/components/layout.tsx';
-import HomePage from './pages/home';
+import Layout from '@/shared/components/layout.tsx';
+import HomePage from '@/pages/home';
 
 function App() {
   return (

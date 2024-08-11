@@ -1,16 +1,19 @@
 import { useState } from 'react';
-import { useTree } from './hooks/use-tree.tsx';
+import { useTree } from '@/pages/home/hooks/use-tree.tsx';
 import { ChevronRightIcon, Loader2, PlusIcon } from 'lucide-react';
-import { Button } from '../../shared/components/ui/button.tsx';
-import { cn } from '../../shared/lib/utils.ts';
-import NodeList from './components/node-list.tsx';
+import { Button } from '@/shared/components/ui/button.tsx';
+import { cn } from '@/shared/lib/utils.ts';
+import TreeList from '@/pages/home/components/tree-list.tsx';
+import { useDialogsType } from '@/pages/home/hooks/use-dialogs-type.ts';
+import TreeForm from '@/pages/home/components/tree-form.tsx';
 
 const HomePage = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { data: tree, isLoading, isError, error } = useTree('my');
+  const { dialogsType, toggleDialog } = useDialogsType();
 
   return (
-    <section className="flex flex-col">
+    <section className="flex flex-col gap-2">
       {isLoading ? (
         <Loader2 className="size-12 animate-spin self-center" />
       ) : isError ? (
@@ -25,14 +28,28 @@ const HomePage = () => {
               {tree?.name}
             </Button>
 
-            <Button variant="secondary" size="icon">
+            <Button
+              variant="secondary"
+              size="icon"
+              onClick={() => {
+                toggleDialog('create');
+              }}
+            >
               <PlusIcon className="size-4" />
             </Button>
           </div>
 
-          {isOpen && <NodeList tree={tree!} />}
+          {tree && isOpen && <TreeList tree={tree} />}
         </>
       )}
+
+      <TreeForm
+        type="Create"
+        node={tree!}
+        onOpenChange={() => toggleDialog('create')}
+        open={dialogsType['create']}
+        onClose={() => toggleDialog('create')}
+      />
     </section>
   );
 };
