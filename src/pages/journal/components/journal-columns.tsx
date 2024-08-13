@@ -1,6 +1,5 @@
 import { ColumnDef } from '@tanstack/react-table';
 import { JournalType } from '@/pages/journal/types';
-import { formatDateTime } from '@/shared/lib/utils.ts';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,6 +8,7 @@ import {
 } from '@/shared/components/ui/dropdown-menu.tsx';
 import { Button } from '@/shared/components/ui/button.tsx';
 import { ArrowUpDown, MoreVerticalIcon } from 'lucide-react';
+import { formatDateTime } from '@/shared/lib/utils.ts';
 
 export const journalColumns: ColumnDef<JournalType>[] = [
   {
@@ -27,8 +27,10 @@ export const journalColumns: ColumnDef<JournalType>[] = [
   },
   {
     accessorKey: 'createdAt',
-    header: () => <div className="text-right">Created At</div>,
-    cell: ({ row }) => <div>{formatDateTime(row.getValue('createdAt')).dateTime}</div>,
+    header: 'Created At',
+    cell: ({ row }) => (
+      <div className="text-nowrap">{formatDateTime(row.getValue('createdAt')).dateTime}</div>
+    ),
   },
   {
     header: 'Options',

@@ -9,6 +9,7 @@ import {
   PaginationState,
   SortingState,
   useReactTable,
+  VisibilityState,
 } from '@tanstack/react-table';
 import {
   Table,
@@ -18,15 +19,12 @@ import {
   TableHeader,
   TableRow,
 } from '@/shared/components/ui/table.tsx';
-import { Button } from '@/shared/components/ui/button.tsx';
-import {
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  ChevronsLeftIcon,
-  ChevronsRightIcon,
-} from 'lucide-react';
 import { useState } from 'react';
 import { Input } from '@/shared/components/ui/input.tsx';
+import { ITEMS_PER_PAGE } from '@/pages/journal/libs/constants.ts';
+import JournalTablePagination from '@/pages/journal/components/journal-table-pagination.tsx';
+import JournalTableVisibility from '@/pages/journal/components/journal-table-visibility.tsx';
+import JournalTableDatePicker from '@/pages/journal/components/journal-table-date-picker.tsx';
 
 type JournalDataTableProps<TData, TValue> = {
   columns: ColumnDef<TData, TValue>[];
@@ -41,8 +39,9 @@ const JournalDataTable = <TData, TValue>({
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [pagination, setPagination] = useState<PaginationState>({
     pageIndex: 0,
-    pageSize: 10,
+    pageSize: ITEMS_PER_PAGE[0],
   });
+  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
 
   const table = useReactTable({
     data,
@@ -54,21 +53,30 @@ const JournalDataTable = <TData, TValue>({
     onSortingChange: setSorting,
     getFilteredRowModel: getFilteredRowModel(),
     onColumnFiltersChange: setColumnFilters,
+    onColumnVisibilityChange: setColumnVisibility,
     state: {
       pagination,
       sorting,
       columnFilters,
+      columnVisibility,
     },
   });
 
   return (
     <section className="flex flex-col gap-4">
-      <Input
-        placeholder="Search by event id..."
-        value={(table.getColumn('eventId')?.getFilterValue() as string) ?? ''}
-        onChange={(event) => table.getColumn('eventId')?.setFilterValue(event.target.value)}
-        className="max-w-sm"
-      />
+      <div className="flex justify-between gap-2">
+        <div className="flex flex-1 flex-col gap-2 md:flex-row">
+          <Input
+            placeholder="Search by event id..."
+            value={(table.getColumn('eventId')?.getFilterValue() as string) ?? ''}
+            onChange={(event) => table.getColumn('eventId')?.setFilterValue(event.target.value)}
+            className="max-w-xs"
+          />
+          <JournalTableDatePicker className="w-full" />
+        </div>
+        <JournalTableVisibility table={table} className="w-fit" />
+      </div>
+
       <div className="rounded-md border">
         <Table>
           <TableHeader>
@@ -106,40 +114,7 @@ const JournalDataTable = <TData, TValue>({
         </Table>
       </div>
 
-      <div className="flex items-center space-x-2 self-end">
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => table.firstPage()}
-          disabled={!table.getCanPreviousPage()}
-        >
-          <ChevronsLeftIcon className="size-4" />
-        </Button>
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => table.previousPage()}
-          disabled={!table.getCanPreviousPage()}
-        >
-          <ChevronLeftIcon className="size-4" />
-        </Button>
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => table.nextPage()}
-          disabled={!table.getCanNextPage()}
-        >
-          <ChevronRightIcon className="size-4" />
-        </Button>
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => table.lastPage()}
-          disabled={!table.getCanNextPage()}
-        >
-          <ChevronsRightIcon className="size-4" />
-        </Button>
-      </div>
+      <JournalTablePagination table={table} className="self-end" />
     </section>
   );
 };

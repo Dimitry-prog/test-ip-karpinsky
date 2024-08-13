@@ -38,3 +38,5 @@ export const INIT_JOURNAL_DATA: JournalType[] = [
     createdAt: '2024-08-09T16:34:38.3776711Z',
   },
 ];
+
+export const ITEMS_PER_PAGE: number[] = [2, 4, 6, 8, 10];
