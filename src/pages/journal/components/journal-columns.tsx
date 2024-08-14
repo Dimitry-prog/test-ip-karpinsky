@@ -9,6 +9,7 @@ import {
 import { Button } from '@/shared/components/ui/button.tsx';
 import { ArrowUpDown, MoreVerticalIcon } from 'lucide-react';
 import { formatDateTime } from '@/shared/lib/utils.ts';
+import { Link } from 'react-router-dom';
 
 export const journalColumns: ColumnDef<JournalType>[] = [
   {
@@ -49,7 +50,7 @@ export const journalColumns: ColumnDef<JournalType>[] = [
   {
     header: 'Options',
     id: 'actions',
-    cell: () => {
+    cell: ({ row }) => {
       return (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -59,7 +60,9 @@ export const journalColumns: ColumnDef<JournalType>[] = [
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            <DropdownMenuItem>View event info</DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link to={`${row.id}`}>View event details</Link>
+            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       );

@@ -8,7 +8,7 @@ import { useState } from 'react';
 
 const Sidebar = () => {
   const { pathname } = useLocation();
-  const [collapse, setCollapse] = useState(false);
+  const [collapse, setCollapse] = useState(true);
 
   return (
     <aside
