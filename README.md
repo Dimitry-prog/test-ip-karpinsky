@@ -27,6 +27,15 @@ npm run dev  // dev mod
 
 ### Preview
 
+<details><summary>Images</summary>
+
+![image1](https://github.com/user-attachments/assets/4ecb47be-debc-472c-9620-ee51b6d7dce7)
+![image2](https://github.com/user-attachments/assets/4bdd8ea0-16db-4fc3-abeb-e4657878118f)
+![image3](https://github.com/user-attachments/assets/15e6ec0d-849c-4acb-b3b3-a5d65c634ae0)
+![image4](https://github.com/user-attachments/assets/ffe36623-f258-4c29-82f8-30d4959d00ef)
+
+</details>
+
 ### Test Assignment for React Front-end Developer
 
 <details><summary>Test Info</summary>
