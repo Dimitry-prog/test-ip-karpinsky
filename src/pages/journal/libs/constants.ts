@@ -8,8 +8,8 @@ export const INIT_JOURNAL_REQUEST: JournalRequestType = {
 
 export const INIT_JOURNAL_DATA: JournalType[] = [
   {
-    id: 0,
-    eventId: 0,
+    id: 10,
+    eventId: 10,
     createdAt: '2024-08-12T16:34:38.3776711Z',
   },
   {

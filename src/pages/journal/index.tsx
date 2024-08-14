@@ -4,7 +4,6 @@ import { journalColumns } from '@/pages/journal/components/journal-columns.tsx';
 
 const JournalPage = () => {
   // const { data: journalData, isError, isLoading, error } = useJournal(INIT_JOURNAL_REQUEST);
-  // console.log({ journalData });
   return (
     // <section className="flex flex-col gap-2">
     //   {isLoading ? (

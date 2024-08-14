@@ -51,6 +51,8 @@ export const journalColumns: ColumnDef<JournalType>[] = [
     header: 'Options',
     id: 'actions',
     cell: ({ row }) => {
+      const eventId = row.original;
+
       return (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -61,7 +63,7 @@ export const journalColumns: ColumnDef<JournalType>[] = [
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuItem asChild>
-              <Link to={`${row.id}`}>View event details</Link>
+              <Link to={`${eventId.id}`}>View event details</Link>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
