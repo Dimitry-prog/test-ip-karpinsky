@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useTree } from '@/pages/home/hooks/use-tree.tsx';
+import { useTree } from '@/pages/home/hooks/use-tree.ts';
 import { ChevronRightIcon, Loader2, PlusIcon } from 'lucide-react';
 import { Button } from '@/shared/components/ui/button.tsx';
 import { cn } from '@/shared/lib/utils.ts';

@@ -20,11 +20,11 @@ import {
   TableRow,
 } from '@/shared/components/ui/table.tsx';
 import { useState } from 'react';
-import { Input } from '@/shared/components/ui/input.tsx';
 import { ITEMS_PER_PAGE } from '@/pages/journal/libs/constants.ts';
 import JournalTablePagination from '@/pages/journal/components/journal-table-pagination.tsx';
-import JournalTableVisibility from '@/pages/journal/components/journal-table-visibility.tsx';
+import { Input } from '@/shared/components/ui/input.tsx';
 import JournalTableDatePicker from '@/pages/journal/components/journal-table-date-picker.tsx';
+import JournalTableVisibility from '@/pages/journal/components/journal-table-visibility.tsx';
 
 type JournalDataTableProps<TData, TValue> = {
   columns: ColumnDef<TData, TValue>[];

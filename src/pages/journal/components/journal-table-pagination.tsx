@@ -43,7 +43,7 @@ const JournalTablePagination = <TData,>({
         />
       </div>
 
-      <div className="flex items-center gap-1">
+      <div className="hidden items-center gap-1 sm:flex">
         <p>Page</p>
         <p className="font-semibold">{table.getState().pagination.pageIndex + 1} of</p>
         <p className="font-semibold">{table.getPageCount().toLocaleString()}</p>
