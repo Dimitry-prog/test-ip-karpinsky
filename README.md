@@ -1,3 +1,32 @@
+## Getting Started
+
+```bash
+npm run dev  // dev mod
+```
+
+### Features
+
+* Recursion Tree
+* Table
+* Filtering
+* Sorting
+* Pagination
+* Visibility
+
+### Stack
+
+* React
+* Typescript
+* Tailwind
+* React-hook-form
+* React-query
+* Zod
+* Axios
+* eslint
+* prettier
+
+### Preview
+
 ### Test Assignment for React Front-end Developer
 
 <details><summary>Test Info</summary>
