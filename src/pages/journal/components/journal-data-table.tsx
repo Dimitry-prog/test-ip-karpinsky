@@ -72,7 +72,7 @@ const JournalDataTable = <TData, TValue>({
             onChange={(event) => table.getColumn('eventId')?.setFilterValue(event.target.value)}
             className="max-w-xs"
           />
-          <JournalTableDatePicker className="w-full" />
+          <JournalTableDatePicker table={table} className="w-full" />
         </div>
         <JournalTableVisibility table={table} className="w-fit" />
       </div>

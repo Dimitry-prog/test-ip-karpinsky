@@ -31,6 +31,20 @@ export const journalColumns: ColumnDef<JournalType>[] = [
     cell: ({ row }) => (
       <div className="text-nowrap">{formatDateTime(row.getValue('createdAt')).dateTime}</div>
     ),
+    filterFn: (row, columnId, filterValue) => {
+      const date = new Date(row.getValue(columnId));
+      const { from, to } = filterValue ?? {};
+
+      if (from && !to) {
+        return date.getTime() >= from.getTime();
+      } else if (!from && to) {
+        return date.getTime() <= to.getTime();
+      } else if (from && to) {
+        return date.getTime() >= from.getTime() && date.getTime() <= to.getTime();
+      }
+
+      return true;
+    },
   },
   {
     header: 'Options',

@@ -25,7 +25,7 @@ export const INIT_JOURNAL_DATA: JournalType[] = [
   {
     id: 3,
     eventId: 3,
-    createdAt: '2024-08-11T16:34:38.3776711Z',
+    createdAt: '2024-08-20T16:34:38.3776711Z',
   },
   {
     id: 4,
