@@ -15,13 +15,18 @@ const HomePage = () => {
   return (
     <section className="flex flex-col gap-2">
       {isLoading ? (
-        <Loader2 className="size-12 animate-spin self-center" />
+        <Loader2 className="size-12 animate-spin self-center" data-testid="loader" />
       ) : isError ? (
         <h2 className="text-lg text-destructive">{error.message}</h2>
       ) : (
         <>
           <div className="flex items-center gap-4">
-            <Button variant="ghost" onClick={() => setIsOpen(!isOpen)} className="flex gap-2">
+            <Button
+              variant="ghost"
+              onClick={() => setIsOpen(!isOpen)}
+              className="flex gap-2"
+              data-testid="toggle-button"
+            >
               {tree?.children && tree?.children.length > 0 && (
                 <ChevronRightIcon className={cn('size-4 transition', isOpen && 'rotate-90')} />
               )}
@@ -34,6 +39,7 @@ const HomePage = () => {
               onClick={() => {
                 toggleDialog('create');
               }}
+              data-testid="create-button"
             >
               <PlusIcon className="size-4" />
             </Button>

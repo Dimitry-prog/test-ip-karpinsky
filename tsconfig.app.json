@@ -36,6 +36,7 @@
   },
   "include": [
     "src",
-    "vitest.setup.ts"
+    "vitest.setup.ts",
+    "node_modules/vitest/globals.d.ts"
   ]
 }

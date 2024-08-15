@@ -15,7 +15,12 @@ const TreeItem = ({ node }: TreeItemProps) => {
   return (
     <li>
       <div className="group flex items-center gap-2">
-        <Button variant="ghost" onClick={() => setIsOpen(!isOpen)} className="flex gap-2">
+        <Button
+          variant="ghost"
+          onClick={() => setIsOpen(!isOpen)}
+          className="flex gap-2"
+          data-testid="root button"
+        >
           {node.children.length > 0 && (
             <ChevronRightIcon className={cn('size-4 transition', isOpen && 'rotate-90')} />
           )}

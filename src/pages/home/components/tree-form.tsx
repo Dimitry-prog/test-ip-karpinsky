@@ -84,7 +84,9 @@ const TreeForm = ({ type, node, open, onOpenChange, onClose }: TreeFormProps) =>
             />
             <Button type="submit" className="flex items-center gap-2">
               {`${type} Node`}
-              {form.formState.isSubmitting && <Loader2 className="size-4 animate-spin" />}
+              {form.formState.isSubmitting && (
+                <Loader2 className="size-4 animate-spin" data-testid="loader" />
+              )}
             </Button>
           </form>
         </Form>
