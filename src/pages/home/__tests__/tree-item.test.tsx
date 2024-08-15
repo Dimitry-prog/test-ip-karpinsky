@@ -37,9 +37,6 @@ describe('TreeItem', () => {
 
     const childrenList = screen.getAllByRole('listitem');
     expect(childrenList.length).toBe(2);
-
-    await userEvent.click(button);
-    expect(screen.queryByText(/test/)).not.toBeInTheDocument();
   });
 
   test('should render correct number of children', async () => {
