@@ -2,6 +2,7 @@
 
 ```bash
 npm run dev  // dev mod
+npm run test  // for tests
 ```
 
 ### Features
@@ -12,6 +13,8 @@ npm run dev  // dev mod
 * Sorting
 * Pagination
 * Visibility
+* Tests
+*
 
 ### Stack
 
@@ -22,6 +25,8 @@ npm run dev  // dev mod
 * React-query
 * Zod
 * Axios
+* Vitest
+* React Testing Library
 * eslint
 * prettier
 
