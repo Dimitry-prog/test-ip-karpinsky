@@ -22,7 +22,7 @@ const JournalSinglePage = () => {
       </Button>
 
       {isLoading ? (
-        <Loader2 className="size-12 animate-spin self-center" />
+        <Loader2 data-testid="loader" className="size-12 animate-spin self-center" />
       ) : isError ? (
         <h2 className="text-lg text-destructive">{error.message}</h2>
       ) : journalData ? (

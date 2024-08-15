@@ -20,6 +20,9 @@
       "@/pages/*": [
         "./src/pages/*"
       ]
-    }
+    },
+    "types": [
+      "vitest/globals"
+    ]
   }
 }
