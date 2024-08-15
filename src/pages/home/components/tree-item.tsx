@@ -4,6 +4,7 @@ import { Button } from '@/shared/components/ui/button.tsx';
 import { ChevronRightIcon } from 'lucide-react';
 import { cn } from '@/shared/lib/utils.ts';
 import TreeActionsDropdown from '@/pages/home/components/tree-actions-dropdown.tsx';
+import { AnimatePresence, motion } from 'framer-motion';
 
 type TreeItemProps = {
   node: NodeType;
@@ -32,13 +33,20 @@ const TreeItem = ({ node }: TreeItemProps) => {
         </div>
       </div>
 
-      {isOpen && (
-        <ul className="ml-6">
-          {node.children.map((node: NodeType) => (
-            <TreeItem node={node} key={node.id} />
-          ))}
-        </ul>
-      )}
+      <AnimatePresence mode="wait">
+        {isOpen && (
+          <motion.ul
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="ml-6"
+          >
+            {node.children.map((node: NodeType) => (
+              <TreeItem node={node} key={node.id} />
+            ))}
+          </motion.ul>
+        )}
+      </AnimatePresence>
     </li>
   );
 };
