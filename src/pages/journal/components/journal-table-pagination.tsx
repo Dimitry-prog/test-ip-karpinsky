@@ -82,6 +82,7 @@ const JournalTablePagination = <TData,>({
           size="sm"
           onClick={() => table.previousPage()}
           disabled={!table.getCanPreviousPage()}
+          data-testid="prev button"
         >
           <ChevronLeftIcon className="size-4" />
         </Button>
@@ -90,6 +91,7 @@ const JournalTablePagination = <TData,>({
           size="sm"
           onClick={() => table.nextPage()}
           disabled={!table.getCanNextPage()}
+          data-testid="next button"
         >
           <ChevronRightIcon className="size-4" />
         </Button>
