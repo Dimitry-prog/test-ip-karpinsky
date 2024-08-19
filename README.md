@@ -14,7 +14,7 @@ npm run test  // for tests
 * Pagination
 * Visibility
 * Tests
-*
+
 
 ### Stack
 
@@ -29,6 +29,14 @@ npm run test  // for tests
 * React Testing Library
 * eslint
 * prettier
+
+### ENV file
+
+<details><summary>env</summary>
+
+VITE_API_BASE_URL=
+
+</details>
 
 ### Preview
 
